@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101719">
+  <title>IPAmouth · Speech Sound Lab</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="top"><div class="wrap bar"><a class="brand" href="#explore"><span aria-hidden="true">≋</span> IPA<span class="accent">mouth</span></a><nav aria-label="Lab sections"><a href="#explore">Explore</a><a href="#compare">Compare</a></nav></div></header>
+  <main class="wrap" id="explore">
+    <div class="intro"><p class="eyebrow">INTRO TO LINGUISTICS <span> / </span> PHONETICS &amp; PHONOLOGY</p><h1>Speech Sound Lab<span>.</span></h1><p>Hear a speech sound and see how the lips, tongue, and airflow shape it.</p></div>
+    <section class="lab" aria-label="Articulation lab">
+      <div class="panel stage">
+        <div class="panel-top"><h2>Vocal tract</h2><span><i></i> Articulation model</span></div>
+        <div class="diagram">
+          <svg viewBox="0 0 560 350" role="img" aria-labelledby="diagram-title">
+            <title id="diagram-title">Side view of the vocal tract</title>
+            <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#253336" stroke-width="1"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#f4b277" stroke-width="1.5"/></marker></defs>
+            <rect width="560" height="350" fill="url(#grid)"/>
+            <path class="outline" d="M198 333L202 284C171 257 154 218 154 166C154 99 190 46 257 38C319 29 369 64 378 120L381 142L419 176Q425 183 414 190L397 194L403 207L397 222Q410 237 399 245L402 263Q402 284 373 286L333 286Q316 289 312 308L310 333Z"/>
+            <path class="cavity" d="M229 309L230 243Q214 218 226 197Q248 166 283 164Q325 161 353 174L392 192L390 200Q351 191 322 191Q275 189 253 216L249 234Z"/>
+            <path id="oral" class="cavity" d="M232 310L234 246Q234 213 264 207Q316 190 365 204L399 214L399 235L375 249Q345 276 313 278L278 291L269 310Z"/>
+            <path class="palate" d="M236 233Q248 205 278 203Q322 189 365 204L394 214"/>
+            <path id="tongue" class="tongue" />
+            <path id="lips" class="lips" />
+            <path class="teeth" d="M374 207L380 219L390 223L392 213"/>
+            <path id="flow" class="flow" marker-end="url(#arrow)" />
+            <path id="leader" class="leader" />
+            <circle id="contact" r="5" />
+            <text id="location" text-anchor="middle" x="280" y="26"></text>
+            <path class="leader" d="M117 278H192L237 295"/>
+            <text x="51" y="283">Throat</text>
+            <path class="leader" d="M454 270H434L404 234"/>
+            <text x="460" y="275">Lips</text>
+          </svg>
+        </div>
+        <div class="stage-foot"><span><b class="dot tongue-dot"></b> Tongue</span><span><b class="dot air-dot"></b> Airflow</span><span class="schematic">Schematic side view</span></div>
+      </div>
+      <div class="panel detail">
+        <div class="panel-top"><h2>Selected sound</h2><span id="key"></span></div>
+        <div class="detail-body" aria-live="polite">
+          <div id="symbol"></div><h3 id="name"></h3><p id="description"></p>
+          <dl id="features"></dl>
+        </div>
+        <div class="actions"><button id="play" class="primary"><span aria-hidden="true">▶</span> Play sound</button><button id="example" class="secondary"></button></div>
+        <p class="audio-status" id="audio-status" role="status"></p>
+      </div>
+    </section>
+
+    <section class="panel library" aria-labelledby="library-title">
+      <div class="panel-top"><h2 id="library-title">Sound library</h2><div class="filters" aria-label="Filter sounds"><button data-filter="all" aria-pressed="true">All sounds</button><button data-filter="consonant" aria-pressed="false">Consonants</button><button data-filter="vowel" aria-pressed="false">Vowels</button></div></div>
+      <div class="sounds" id="sounds"></div>
+      <p class="hint">Press a letter shown on a tile to hear its sound. Press Space to replay the selected sound.</p>
+    </section>
+
+    <section id="compare" class="compare" aria-labelledby="compare-title">
+      <p class="eyebrow">PHONOLOGY</p><h2 id="compare-title">Compare sound patterns</h2>
+      <div class="comparisons">
+        <article class="panel lesson"><h3>Minimal pair</h3><p>In English, swapping [s] for [t] changes <em>see</em> to <em>tea</em>. Two words that differ by one sound in the same position can show a phonemic contrast.</p><div class="examples"><button data-word="see" data-sound="s">▶ See <small>[si]</small></button><button data-word="tea" data-sound="t">▶ Tea <small>[tʰi]</small></button></div></article>
+        <article class="panel lesson"><h3>Aspiration</h3><p>In many English varieties, /p/ has a puff of air at the start of stressed <em>pin</em>. After [s] in <em>spin</em>, the puff is much smaller. These are allophones of /p/.</p><div class="examples"><button data-word="pin" data-sound="pʰ">▶ Pin <small>[pʰɪn]</small></button><button data-word="spin" data-sound="p">▶ Spin <small>[spɪn]</small></button></div></article>
+        <article class="panel lesson"><h3>Where sounds occur</h3><p>English typically permits [ŋ] at the end of <em>sing</em>. Tagalog also permits it at the start of words, as in <em>ngipin</em> [ŋipin], meaning “teeth.” Each language has its own sound patterns.</p><div class="examples"><button data-word="sing" data-sound="ŋ">▶ Sing <small>[sɪŋ]</small></button></div></article>
+      </div>
+      <p class="note">The lab describes how people use sounds. Pronunciations vary across languages, accents, and speakers. Audio is synthesized and diagrams are simplified.</p>
+    </section>
+  </main>
+  <footer class="wrap">IPAmouth <span>Based on Intro to Linguistics · Class 02 (Language) and Class 04 (Phonology)</span></footer>
+</body>
+</html>
